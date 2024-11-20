@@ -37,7 +37,7 @@ The test plan includes:
 
 2. **Automated Test Scenarios**:
    - Scripts located in the `/automation-tests` folder.
-   - Written using the Page Object Model (POM) for scalability and maintainability.
+   - Written using Selenium Web Driver
 
 ## 🚀 Project Roadmap
 - [x] Manual test case creation.
