@@ -43,7 +43,6 @@ The test plan includes:
 - [x] Manual test case creation.
 - [x] Automate functional test cases using Selenium.
 - [x] Performance test setup using JMeter.
-- [ ] Integrate tests with CI/CD pipeline via GitHub Actions.
 
 ## 🤝 Contributing
 Contributions are welcome! Feel free to open an issue or submit a pull request.
