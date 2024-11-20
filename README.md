@@ -39,11 +39,6 @@ The test plan includes:
    - Scripts located in the `/automation-tests` folder.
    - Written using Selenium Web Driver
 
-## 🚀 Project Roadmap
-- [x] Manual test case creation.
-- [x] Automate functional test cases using Selenium.
-- [x] Performance test setup using JMeter.
-
 ## 🤝 Contributing
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 
