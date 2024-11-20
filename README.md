@@ -29,8 +29,27 @@ This repository contains the test automation project for the **Parking Cost Calc
 - **Performance Testing**: Simulate multiple users accessing the calculator simultaneously.
 - **Accessibility Testing**: Ensure compatibility with screen readers and keyboard-only navigation.
 
-## 🛠️ Project Setup
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/StefRuseva88/parking-cost-calculator-tests.git
+## 📝 Test Plan
+The test plan includes:
+1. **Manual Test Cases**:
+   - Available in the `/test-cases` folder.
+   - Covers UI/UX, responsiveness, and boundary conditions.
+
+2. **Automated Test Scenarios**:
+   - Scripts located in the `/automation-tests` folder.
+   - Written using the Page Object Model (POM) for scalability and maintainability.
+
+## 🚀 Project Roadmap
+- [x] Manual test case creation.
+- [x] Automate functional test cases using Selenium.
+- [x] Performance test setup using JMeter.
+- [ ] Integrate tests with CI/CD pipeline via GitHub Actions.
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## 📄 License
+This project is licensed under the MIT License. See the `LICENSE` file for details.
+
+
 
