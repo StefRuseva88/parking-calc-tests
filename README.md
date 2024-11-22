@@ -1,4 +1,4 @@
-# 🚗 Parking Cost Calculator - Test Automation 
+# Parking Cost Calculator - Test Automation 🚗
 
 ## 📋 Overview
 This repository contains the test automation project for [Parking Cost Calculator](https://shino.de/parkcalc/). The project aims to validate the accuracy, functionality, and performance of the calculator through both manual and automated testing techniques.
