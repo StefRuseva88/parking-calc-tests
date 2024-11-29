@@ -36,11 +36,12 @@ The test plan includes:
    - Scripts located in the `/automation-tests` folder.
    - Written using Selenium Web Driver
 
-## 🤝 Contributing
-Contributions are welcome! Feel free to open an issue or submit a pull request.
-
 ## 📄 License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
+### 🤝 Contact
+For any questions or suggestions, please open an issue in the repository.
 
+---
+### Happy Testing! 🚀
 
