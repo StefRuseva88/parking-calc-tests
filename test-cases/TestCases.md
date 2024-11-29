@@ -1,42 +1,26 @@
-### Validation of Parking Rate Rules  
+### Revised Test Table: **Features, Edge Cases, and Error Handling**
 
-**Rules Summary for Validation**:  
-1. **Valet Parking**: $18/day; $12 if ≤5 hours.  
-2. **Short-Term Parking**: $2 first hour, $1 for each ½ hour; $24/day max.  
-3. **Long-Term Garage Parking**: $2/hour, $12/day max, $72/week (7th day free).  
-4. **Long-Term Surface Parking (North Lot)**: $2/hour, $10/day max, $60/week (7th day free).  
-5. **Economy Lot Parking**: $2/hour, $9/day max, $54/week (7th day free).  
-
----
-
-### Final Comprehensive Test Table  
-
-| **Test Category**      | **Scenario**                                             | **Inputs**                                      | **Expected Output**                                                                 |
-|-------------------------|---------------------------------------------------------|------------------------------------------------|-------------------------------------------------------------------------------------|
-| **Valet Parking**       | ≤ 5 hours                                              | 5 hours                                        | $12.00                                                                             |
-|                         | > 5 hours                                              | 8 hours                                        | $18.00                                                                             |
-|                         | Multi-day stay                                         | 3 days                                         | $54.00                                                                             |
-| **Short-Term Parking**  | ≤ 1 hour                                               | 1 hour                                        | $2.00                                                                              |
-|                         | 1.5 hours                                              | 1 hour 30 minutes                              | $3.00                                                                              |
-|                         | Daily max                                              | 10 hours                                       | $24.00                                                                             |
-|                         | Multi-day stay                                         | 3 days                                         | $72.00                                                                             |
-| **Long-Term Garage**    | Hourly charge                                          | 5 hours                                        | $10.00                                                                             |
-|                         | Daily max                                              | 12 hours                                       | $12.00                                                                             |
-|                         | Weekly rate (7th day free)                             | 8 days                                         | $72.00                                                                             |
-|                         | Weekly rate edge case                                  | 7 days                                         | $72.00                                                                             |
-| **Long-Term Surface**   | Hourly charge                                          | 5 hours                                        | $10.00                                                                             |
-|                         | Daily max                                              | 12 hours                                       | $10.00                                                                             |
-|                         | Weekly rate (7th day free)                             | 9 days                                         | $60.00                                                                             |
-|                         | Weekly rate edge case                                  | 7 days                                         | $60.00                                                                             |
-| **Economy Lot**         | Hourly charge                                          | 5 hours                                        | $9.00                                                                              |
-|                         | Daily max                                              | 12 hours                                       | $9.00                                                                              |
-|                         | Weekly rate (7th day free)                             | 7 days                                         | $54.00                                                                             |
-|                         | Weekly rate edge case                                  | 8 days                                         | $54.00 + daily rate                                                                |
-| **Leap Year Handling**  | Test February 29th                                    | Entry: Feb 28, Exit: Mar 1                     | Correctly calculate days, ensure valid date computation                            |
-| **Invalid Inputs**      | Negative hours                                         | -5 hours                                       | Error: Invalid input                                                              |
-|                         | Non-numeric inputs                                     | "abc"                                          | Error: Invalid input                                                              |
-|                         | Large unexpected values                                | 10,000 hours                                   | Error: Invalid input                                                              |
-| **Edge Cases**          | Maximum daily charge reached with odd hours            | 23 hours (short-term lot)                      | $24.00                                                                             |
-|                         | Crossing weekly reset (free 7th day)                   | 13 days (economy lot)                          | $108.00 (7+7 days: 2 free)                                                        |
+| **Test Case ID** | **Test Category**         | **Scenario**                                     | **Input**                                             | **Expected Output**                                      | **Status**   | **Notes**                                         |
+|-------------------|---------------------------|-------------------------------------------------|-------------------------------------------------------|----------------------------------------------------------|--------------|--------------------------------------------------|
+| TC01              | Short-term parking       | Calculate cost for parking under an hour        | Entry: 10:00, Exit: 10:45                             | Total cost: $2.00 (minimum charge applies)               | Pass/Fail    | Confirm handling of partial hours.               |
+| TC02              | Short-term parking       | Calculate cost for 2 hours 15 minutes           | Entry: 10:00, Exit: 12:15                             | Total cost: $4.50                                       | Pass/Fail    | Validate additional ½ hour increments.          |
+| TC03              | Short-term parking       | Apply daily max                                 | Entry: 08:00, Exit: 22:00                             | Total cost: $24.00                                      | Pass/Fail    | Confirm daily cap logic.                        |
+| TC04              | Valet parking            | ≤ 5 hours                                       | Entry: 10:00, Exit: 15:00                             | Total cost: $12.00                                      | Pass/Fail    | Validate 5-hour valet rate rule.                |
+| TC05              | Valet parking            | > 5 hours                                       | Entry: 10:00, Exit: 20:00                             | Total cost: $18.00                                      | Pass/Fail    | Validate full-day valet rate.                   |
+| TC06              | Long-term garage parking | Calculate cost for 3 hours                      | Entry: 10:00, Exit: 13:00                             | Total cost: $6.00                                       | Pass/Fail    | Confirm hourly charges.                         |
+| TC07              | Long-term garage parking | Apply daily max                                 | Entry: 08:00, Exit: 22:00                             | Total cost: $12.00                                      | Pass/Fail    | Validate daily cap logic.                       |
+| TC08              | Long-term garage parking | Weekly rate (7th day free)                      | Entry: 01-Nov 08:00, Exit: 08-Nov 08:00               | Total cost: $72.00                                      | Pass/Fail    | Confirm free 7th-day application.               |
+| TC09              | Long-term surface parking| Apply daily max                                 | Entry: 08:00, Exit: 22:00                             | Total cost: $10.00                                      | Pass/Fail    | Validate surface lot daily cap logic.           |
+| TC10              | Long-term surface parking| Weekly rate (7th day free)                      | Entry: 01-Nov 08:00, Exit: 08-Nov 08:00               | Total cost: $60.00                                      | Pass/Fail    | Confirm weekly rate calculation.                |
+| TC11              | Economy parking          | Apply daily max                                 | Entry: 08:00, Exit: 22:00                             | Total cost: $9.00                                       | Pass/Fail    | Validate economy lot daily cap.                 |
+| TC12              | Economy parking          | Weekly rate (7th day free)                      | Entry: 01-Nov 08:00, Exit: 08-Nov 08:00               | Total cost: $54.00                                      | Pass/Fail    | Confirm weekly rate calculation.                |
+| TC13              | Invalid inputs           | Exit time before entry                          | Entry: 14:00, Exit: 10:00                             | Error: "Invalid input: Exit time must be after entry."   | Pass/Fail    | Validate error for negative intervals.          |
+| TC14              | Invalid inputs           | Exit date before entry                          | Entry: 03-Nov 10:00, Exit: 02-Nov 10:00               | Error: "Invalid input: Exit date must be after entry."   | Pass/Fail    | Confirm error handling for date inputs.         |
+| TC15              | Leap year                | Validate leap year calculation                  | Entry: 28-Feb-2024 10:00, Exit: 01-Mar-2024 10:00     | Total cost: $36.00 (e.g., $12/day for 3 days)           | Pass/Fail    | Ensure correct leap year logic.                 |
+| TC16              | Edge case: Exact minutes | Validate calculations for exact minute durations| Entry: 10:00:00, Exit: 10:59:59                      | Total cost: $2.00                                       | Pass/Fail    | Confirm minute-level precision.                 |
+| TC17              | Grace period             | Validate short grace period                     | Entry: 10:00, Exit: 10:14                             | Total cost: $0.00                                       | Pass/Fail    | Ensure consistent application of grace period.  |
+| TC18              | Maximum parking duration | Validate maximum allowable duration             | Entry: 01-Jan 10:00, Exit: 01-Feb 10:00               | Error: "Parking duration exceeds maximum limit."        | Pass/Fail    | Confirm proper handling of excessive durations. |
 
 ---
+
+Would you like to dive deeper into edge cases or add more precision to any rule?
