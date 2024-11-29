@@ -34,7 +34,7 @@ The test plan includes:
 
 2. **Automated Test Scenarios**:
    - Scripts located in the `/automation-tests` folder.
-   - Written using Selenium Web Driver
+   - Written using qUnit and Selenium Web Driver
 
 ## 📄 License
 This project is licensed under the MIT License. See the `LICENSE` file for details.
