@@ -1,11 +1,10 @@
 # Parking Cost Calculator - Test Automation
 
 ## 📋 Overview
-This repository contains the test automation project for [Parking Cost Calculator](https://shino.de/parkcalc/). The project aims to validate the accuracy, functionality, and performance of the calculator through both manual and automated testing techniques.
+This repository contains the test automation project for [Parking Cost Calculator](https://shino.de/parkcalc/). The project aims to validate the accuracy, functionality and error handling of the calculator through both manual and automated testing techniques.
 ## 🛠️ Tools and Technologies
 - **Programming Languages**: C#, JavaScript
 - **Test Automation Frameworks**: Selenium WebDriver, NUnit
-- **Performance Testing**: JMeter
 
 ## ✨ Features
 - Automated functional tests for:
@@ -13,7 +12,6 @@ This repository contains the test automation project for [Parking Cost Calculato
   - Edge and boundary conditions (e.g., time transitions, weekly rates).
   - Input validations and error handling.
 - Comprehensive manual test cases for UI/UX and responsiveness.
-- Performance testing to simulate user load.
 
 ## 🧪 Testing Scope
 ### Functional Testing
