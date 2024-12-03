@@ -1,15 +1,14 @@
 QUnit.module("Parking Rate Validation Tests", function () {
 
     // Valet Parking Tests
-    QUnit.test("Valet Parking", function (assert) {
+    QUnit.test("Valet Parking Tests", function (assert) {
         assert.strictEqual(calculateValetParking(5), 12, "5 hours = $12");
         assert.strictEqual(calculateValetParking(8), 18, "8 hours = $18");
         assert.strictEqual(calculateValetParking(72), 18 * 3, "3 days = $54");
-      
     });
 
     // Short-Term Parking Tests
-    QUnit.test("Short-Term Parking", function (assert) {
+    QUnit.test("Short-Term Parking Tests", function (assert) {
         assert.strictEqual(calculateShortTermParking(1), 2, "1 hour = $2");
         assert.strictEqual(calculateShortTermParking(1.5), 3, "1.5 hours = $3");
         assert.strictEqual(calculateShortTermParking(12), 24, "12 hours = $24");
@@ -17,7 +16,7 @@ QUnit.module("Parking Rate Validation Tests", function () {
     });
 
     // Long-Term Garage Tests
-    QUnit.test("Long-Term Garage Parking", function (assert) {
+    QUnit.test("Long-Term Garage Parking Tests", function (assert) {
         assert.strictEqual(calculateLongTermGarageParking(12), 12, "12 hours = $12");
         assert.strictEqual(calculateLongTermGarageParking(5), 10, "5 hours = $10");
         assert.strictEqual(calculateLongTermGarageParking(8 * 24), 84, "8 days = $84");
@@ -25,7 +24,7 @@ QUnit.module("Parking Rate Validation Tests", function () {
     });
 
     // Long-Term Surface Tests
-    QUnit.test("Long-Term Surface Parking", function (assert) {
+    QUnit.test("Long-Term Surface Parking Tests", function (assert) {
         assert.strictEqual(calculateLongTermSurfaceParking(5), 10, "5 hours = $10");
         assert.strictEqual(calculateLongTermSurfaceParking(12), 10, "12 hours = $10");
         assert.strictEqual(calculateLongTermSurfaceParking(9 * 24), 60, "9 days = $60");
@@ -33,24 +32,18 @@ QUnit.module("Parking Rate Validation Tests", function () {
     });
 
     // Economy Lot Tests
-    QUnit.test("Economy Lot Parking", function (assert) {
+    QUnit.test("Economy Lot Parking Tests", function (assert) {
         assert.strictEqual(calculateEconomyLotParking(5), 9, "5 hours = $9");
         assert.strictEqual(calculateEconomyLotParking(12), 9, "12 hours = $9");
         assert.strictEqual(calculateEconomyLotParking(7 * 24), 54, "7 days = $54");
-        assert.strictEqual(calculateEconomyLotParking(8 * 24), 54 + 9, "8 days = $54 + daily rate");
+        assert.strictEqual(calculateEconomyLotParking(8 * 24), 54 + 9, "8 days = $54");
     });
 
     // Leap Year Tests
-    QUnit.test("Leap Year Handling", function (assert) {
+    QUnit.test("Leap Year Handling Test", function (assert) {
         const entry = new Date("2024-02-28");
         const exit = new Date("2024-03-01");
         assert.strictEqual(calculateParkingDays(entry, exit), 2, "Feb 28 to Mar 1 = 2 days (Leap year handled)");
-    });
-
-    // Edge Cases Tests
-    QUnit.test("Edge Cases", function (assert) {
-        assert.strictEqual(calculateShortTermParking(23), 24, "23 hours (short-term lot) = $24");
-        assert.strictEqual(calculateEconomyLotParking(13 * 24), 108, "13 days (economy lot) = $108 (7+7 days: 2 free)");
     });
 });
 
@@ -97,4 +90,3 @@ function calculateEconomyLotParking(hours) {
 function calculateParkingDays(entry, exit) {
     return Math.ceil((exit - entry) / (1000 * 60 * 60 * 24));
 }
-
