@@ -1,6 +1,7 @@
 # Parking Cost Calculator - Test Automation
 [![JavaScript](https://img.shields.io/badge/Made%20with-JavaScript-F7DF1E.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![QUnit](https://img.shields.io/badge/tested%20with-QUnit-9C4CB4.svg)](https://qunitjs.com/)
+[![Cypress](https://img.shields.io/badge/tested%20with-Cypress-17202C.svg)](https://www.cypress.io/)
 
 ## 📋 Overview
 This repository contains the test automation project for [Parking Cost Calculator](https://shino.de/parkcalc/). The project aims to validate the accuracy, functionality and error handling of the calculator through both manual and automated testing techniques.
