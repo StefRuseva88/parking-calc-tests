@@ -22,5 +22,3 @@
 | TC18              | Maximum parking duration | Validate maximum allowable duration             | Entry: 01-Jan 10:00, Exit: 01-Feb 10:00               | Error: "Parking duration exceeds maximum limit."        | Pass/Fail    | Confirm proper handling of excessive durations. |
 
 ---
-
-Would you like to dive deeper into edge cases or add more precision to any rule?
