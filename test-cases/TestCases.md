@@ -1,4 +1,4 @@
-### Revised Test Table: **Features, Edge Cases, and Error Handling**
+### Test Table: **Features, Edge Cases, and Error Handling**
 
 | **Test Case ID** | **Test Category**         | **Scenario**                                     | **Input**                                             | **Expected Output**                                      | **Status**   | **Notes**                                         |
 |-------------------|---------------------------|-------------------------------------------------|-------------------------------------------------------|----------------------------------------------------------|--------------|--------------------------------------------------|
