@@ -20,5 +20,3 @@
 | TC16              | Edge case: Exact minutes | Validate calculations for exact minute durations| Entry: 10:00:00, Exit: 10:59:59                      | Total cost: $2.00                                       | Pass/Fail    | Confirm minute-level precision.                 |
 | TC17              | Grace period             | Validate short grace period                     | Entry: 10:00, Exit: 10:14                             | Total cost: $0.00                                       | Pass/Fail    | Ensure consistent application of grace period.  |
 | TC18              | Maximum parking duration | Validate maximum allowable duration             | Entry: 01-Jan 10:00, Exit: 01-Feb 10:00               | Error: "Parking duration exceeds maximum limit."        | Pass/Fail    | Confirm proper handling of excessive durations. |
-
----
